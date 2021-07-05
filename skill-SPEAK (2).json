@@ -1,0 +1,227 @@
+{
+  "intents": [
+    {
+      "intent": "Farewell",
+      "examples": [
+        {
+          "text": "bay"
+        },
+        {
+          "text": "Good bay"
+        },
+        {
+          "text": "Thank"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "Thank you"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Hello",
+      "examples": [
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Inquiries",
+      "examples": [
+        {
+          "text": "How can i use this page ?"
+        },
+        {
+          "text": "How do i use the page ?"
+        },
+        {
+          "text": "How this page work ?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Questions",
+      "examples": [
+        {
+          "text": "is this a Project ?"
+        },
+        {
+          "text": "What is the name of Project ?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_7_1624988407660",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Inquiries",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Choose the appropriate value for the motor and start it ."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Inquiries",
+      "dialog_node": "node_10_1624989135866",
+      "previous_sibling": "node_1_1624989408313"
+    },
+    {
+      "type": "standard",
+      "title": "Farewell",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I hope you liked the page "
+              },
+              {
+                "text": "Noon wishes you a nice day"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#Farewell",
+      "dialog_node": "node_1_1624989408313",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Questions",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "This is a robot  arm project ."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Questions",
+      "dialog_node": "node_3_1624988829649",
+      "previous_sibling": "node_10_1624989135866"
+    },
+    {
+      "type": "standard",
+      "title": "Hello",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Hello",
+      "dialog_node": "node_7_1624988407660",
+      "previous_sibling": "node_3_1624988829649"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, I'm Noon ,How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "SPEAK",
+  "language": "en",
+  "description": ""
+}
